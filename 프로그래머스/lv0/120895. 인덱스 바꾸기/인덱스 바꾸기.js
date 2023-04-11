@@ -1,8 +1,9 @@
 function solution(my_string, num1, num2) {
   let newarr = my_string.split("");
-    let savenum = newarr[num1];
-    newarr[num1]= newarr[num2];
-    newarr[num2]= savenum;
+    // let savenum = newarr[num1];
+    // newarr[num1]= newarr[num2];
+    // newarr[num2]= savenum;
+    [newarr[num1],newarr[num2]] =[newarr[num2],newarr[num1]];
     return newarr.join("");
     
 }
