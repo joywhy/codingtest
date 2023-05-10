@@ -4,12 +4,12 @@ function solution(maps) {
  
 
  const visited = Array.from({length:maps.length},()=> new Array(maps[0].length).fill(false),);
-
+  //게임맵과 똑같은 5x5지만 값은 0로 채워진 배열 을 생성합니다. 
  const dist = Array.from({length:maps.length},()=> new Array(maps[0].length).fill(0),);
   const q =[]; 
   q.push([0,0]);
   visited[0][0]=true;
-
+  //도착지의 최단거리는 1입니다.
   dist[0][0]=1;
   
   while(q.length){ 
@@ -22,12 +22,12 @@ function solution(maps) {
   
 
   if(x>-1&&x<maps.length&&y>-1&&y<maps[0].length){
-
-    if((maps[x][y]===1)&&!visited[x][y]){  
+  //처음 방문했을때 -> visited[x][y]이 false 일 때 
+    if(maps[x][y]===1&&!visited[x][y]){  
      q.push([x,y]);
         visited[x][y]=true;
         
-    
+        //먼저 탐색하지 않았다면 
         if(dist[x][y]===0 ){
            dist[x][y]=dist[curX][curY]+1;
         }
