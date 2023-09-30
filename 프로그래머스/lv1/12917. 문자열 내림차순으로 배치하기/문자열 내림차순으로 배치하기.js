@@ -1,4 +1,4 @@
 function solution(s) {
-    var answer = [...s].sort((a,b)=> a<b ? 1 : -1).join("");
+    var answer = [...s].sort().reverse().join("");
     return answer;
 }
