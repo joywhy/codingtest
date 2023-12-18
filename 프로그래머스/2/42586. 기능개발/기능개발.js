@@ -1,29 +1,31 @@
 function solution(progresses, speeds) {
-    let releaseDate = 0;
-    let features = 0; 
+    let deadline = 0;
+    let count = 0; 
     
     let dueDate = progresses.map((el,idx)=>{
      let task = (100-el)/speeds[idx];              
      return  Math.ceil(task);
     });
    
+    console.log(dueDate);
     let answer =[];
      dueDate.forEach((el,idx,arr)=>{
-    
-          if(releaseDate<el){
-              releaseDate = el;  
+        //  console.log(deadline);
+        // console.log(count);
+          if(deadline<el){
+              deadline = el;  
            }
-          if(releaseDate>=el){
-            features=features+1;
+          if(deadline>=el){
+            count=count+1;
            }
-           if((releaseDate>=el)&&(releaseDate<arr[idx+1])){
-             let dat=features;
-             features=0;
-     
+           if((deadline>=el)&&(deadline<arr[idx+1])){
+             let dat=count;
+             count=0;
+               console.log(dat);
             answer.push(dat);   
            }
          if(idx === arr.length-1){
-            return  answer.push(features);  
+            return  answer.push(count);  
          }
     });
     return answer;
